@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  android:padding="8dp">
+
+  <TextView
+    android:id="@+id/date_time_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:lineSpacingExtra="24sp"
+    android:text="@string/month_year_selector"
+    android:textAlignment="center"
+    android:textColor="@color/colorText"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:padding="5dp"/>
+
+  <DatePicker
+    android:id="@+id/date_picker"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:calendarViewShown="false"
+    android:datePickerMode="spinner" />
+
+  <Button
+    android:id="@+id/date_time_set"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:background="@color/colorPrimary"
+    android:text="@string/set"
+    android:textColor="@color/colorText"
+    android:layout_gravity="center"/>
+</LinearLayout>

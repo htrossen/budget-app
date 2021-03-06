@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+    <variable
+      name="createCategoryViewModel"
+      type="com.example.android.budgettracker.screens.category.CreateCategoryViewModel" />
+  </data>
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:context=".screens.category.CreateCategoryFragment">
+
+      <TextView
+        android:id="@+id/category_create_new_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:gravity="clip_horizontal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <EditText
+        android:id="@+id/category_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="@string/name"
+        android:inputType="textPersonName"
+        android:text="@{createCategoryViewModel.name}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.166"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_create_new_text" />
+
+      <Spinner
+        android:id="@+id/category_group"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="154dp"
+        android:entries="@array/budget_groups"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_name" />
+
+      <TextView
+        android:id="@+id/category_budget_allocation_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/budget_allocation"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_group" />
+
+      <EditText
+        android:id="@+id/category_budgeted_input"
+        android:layout_width="107dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="@{createCategoryViewModel.allocation}"
+        app:layout_constraintBaseline_toBaselineOf="@+id/category_budget_allocation_text"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+      <TextView
+        android:id="@+id/category_dollar_sign_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/dollar_size"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/category_budget_allocation_text"
+        app:layout_constraintEnd_toStartOf="@+id/category_budgeted_input" />
+
+      <TextView
+        android:id="@+id/category_pre_tax_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/pre_tax"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_budget_allocation_text" />
+
+      <Switch
+        android:id="@+id/category_pre_tax_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:checked="@{createCategoryViewModel.taxFree}"
+        app:layout_constraintBaseline_toBaselineOf="@+id/category_pre_tax_text"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+      <Button
+        android:id="@+id/category_add_category_button"
+        android:layout_width="161dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:onClick="@{() -> createCategoryViewModel.insertOrAddCategory(categoryName.getText().toString(), categoryGroup.getSelectedItem().toString(), categoryBudgetedInput.getText().toString(), categoryPreTaxSwitch.isChecked())}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_pre_tax_text" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </ScrollView>
+
+</layout>

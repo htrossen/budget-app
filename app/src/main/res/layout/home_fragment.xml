@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+    <variable
+      name="homeViewModel"
+      type="com.example.android.budgettracker.screens.main.HomeViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.main.HomeFragment">
+
+    <TextView
+      android:id="@+id/name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:text="@{homeViewModel.name}"
+      android:textSize="24sp"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="My Budget" />
+
+    <Button
+      android:id="@+id/date"
+      android:layout_width="232dp"
+      android:layout_height="40dp"
+      android:layout_marginTop="64dp"
+      android:text="@{homeViewModel.date}"
+      android:textSize="18sp"
+      android:onClick="@{() -> homeViewModel.onChangeDate()}"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="October 2019" />
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="489dp"
+      android:orientation="vertical"
+      android:layout_marginTop="8dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/date" >
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/needs_list"
+      android:layout_width="match_parent"
+      android:layout_height="155dp"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/savings_list"
+      android:layout_width="match_parent"
+      android:layout_height="155dp"
+      android:layout_marginTop="8dp"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/wants_list"
+      android:layout_width="match_parent"
+      android:layout_height="155dp"
+      android:layout_marginTop="8dp"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    </LinearLayout>
+
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/floatingActionButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="24dp"
+      android:layout_marginBottom="24dp"
+      android:clickable="true"
+      android:focusable="true"
+      android:onClick="@{() -> homeViewModel.onAddItem()}"
+      android:src="@drawable/ic_add"
+      app:backgroundTint="@color/colorPrimary"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:maxImageSize="32dp" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

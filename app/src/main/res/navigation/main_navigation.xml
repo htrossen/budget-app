@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/main_navigation"
+  app:startDestination="@id/title_destination">
+  <fragment
+    android:id="@+id/title_destination"
+    android:name="com.example.android.budgettracker.screens.title.TitleFragment"
+    android:label="Budget Tracker"
+    tools:layout="@layout/title_fragment">
+    <action
+      android:id="@+id/action_title_to_create_budget"
+      app:destination="@id/create_budget_destination" />
+    <action
+      android:id="@+id/action_title_to_home"
+      app:destination="@id/home_destination" />
+    <action
+      android:id="@+id/action_title_to_info"
+      app:destination="@id/info_destination" />
+  </fragment>
+  <fragment
+    android:id="@+id/create_budget_destination"
+    android:name="com.example.android.budgettracker.screens.budget.CreateBudgetFragment"
+    android:label="Budget"
+    tools:layout="@layout/create_budget_fragment">
+    <action
+      android:id="@+id/action_create_budget_to_create_category"
+      app:destination="@id/create_category_destination" />
+    <argument
+      android:name="budgetKey"
+      app:argType="long"
+      android:defaultValue="0L"/>
+    <action
+      android:id="@+id/action_create_budget_to_home"
+      app:destination="@+id/home_destination" />
+  </fragment>
+  <fragment
+    android:id="@+id/create_category_destination"
+    android:name="com.example.android.budgettracker.screens.category.CreateCategoryFragment"
+    android:label="Category"
+    tools:layout="@layout/create_category_fragment">
+    <action
+      android:id="@+id/action_create_category_to_create_budget"
+      app:destination="@id/create_budget_destination" />
+    <argument
+      android:name="budgetKey"
+      app:argType="long" />
+    <argument
+      android:name="categoryKey"
+      app:argType="long"
+      android:defaultValue="0L" />
+  </fragment>
+  <fragment
+    android:id="@+id/home_destination"
+    android:name="com.example.android.budgettracker.screens.main.HomeFragment"
+    android:label="Budget Summary"
+    tools:layout="@layout/home_fragment" >
+    <argument
+      android:name="budgetKey"
+      app:argType="long" />
+    <action
+      android:id="@+id/action_home_to_create_item"
+      app:destination="@id/create_item_destination" />
+    <action
+      android:id="@+id/action_home_to_create_budget"
+      app:destination="@id/create_budget_destination" />
+    <action
+      android:id="@+id/action_home_to_title"
+      app:destination="@id/title_destination" />
+    <action
+      android:id="@+id/action_home_to_item_detail_list"
+      app:destination="@id/item_detail_list_destination" />
+  </fragment>
+  <fragment
+    android:id="@+id/create_item_destination"
+    android:name="com.example.android.budgettracker.screens.item.CreateItemFragment"
+    android:label="Expense"
+    tools:layout="@layout/create_item_fragment">
+    <argument
+      android:name="budgetKey"
+      app:argType="long"
+      android:defaultValue="0L" />
+    <action
+      android:id="@+id/action_create_item__to_home"
+      app:destination="@id/home_destination" />
+    <argument
+      android:name="itemKey"
+      android:defaultValue="0L"
+      app:argType="long" />
+  </fragment>
+  <fragment
+    android:id="@+id/item_detail_list_destination"
+    android:name="com.example.android.budgettracker.screens.item.ItemDetailListFragment"
+    android:label="Item Detail List"
+    tools:layout="@layout/item_detail_list_fragment">
+    <argument
+      android:name="budgetKey"
+      android:defaultValue="0L"
+      app:argType="long" />
+    <argument
+      android:name="category"
+      app:argType="string" />
+    <argument
+      android:name="month"
+      app:argType="string" />
+    <argument
+      android:name="year"
+      android:defaultValue="0"
+      app:argType="integer" />
+    <action
+      android:id="@+id/action_item_detail_list_to_create_item"
+      app:destination="@+id/create_item_destination" />
+  </fragment>
+  <fragment
+    android:id="@+id/info_destination"
+    android:name="com.example.android.budgettracker.screens.info.InfoFragment"
+    android:label="Information"
+    tools:layout="@layout/info_fragment" >
+    <argument
+      android:name="infoType"
+      app:argType="string" />
+  </fragment>
+</navigation>

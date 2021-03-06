@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+    <variable
+      name="createItemViewModel"
+      type="com.example.android.budgettracker.screens.item.CreateItemViewModel" />
+  </data>
+
+  <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      tools:context=".screens.item.CreateItemFragment">
+
+      <TextView
+        android:id="@+id/item_create_new_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:gravity="clip_horizontal"
+        android:text="@string/create_item"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+      <EditText
+        android:id="@+id/item_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/description"
+        android:text="@{createItemViewModel.description}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_create_new_text" />
+
+      <Spinner
+        android:id="@+id/item_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_description" />
+
+      <Spinner
+        android:id="@+id/item_month"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="160dp"
+        android:entries="@array/months"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_category" />
+
+      <Spinner
+        android:id="@+id/item_day"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:entries="@array/days"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_category" />
+
+      <TextView
+        android:id="@+id/item_cost_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/cost"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_day" />
+
+      <TextView
+        android:id="@+id/category_dollar_sign_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/dollar_size"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/item_cost_text"
+        app:layout_constraintEnd_toStartOf="@+id/item_cost_input" />
+
+      <EditText
+        android:id="@+id/item_cost_input"
+        android:layout_width="100dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="@{createItemViewModel.cost}"
+        app:layout_constraintBaseline_toBaselineOf="@+id/item_cost_text"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+      <TextView
+        android:id="@+id/item_split_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/split"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_cost_text" />
+
+      <EditText
+        android:id="@+id/item_split_input"
+        android:layout_width="100dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="@{createItemViewModel.group}"
+        app:layout_constraintBaseline_toBaselineOf="@+id/item_split_text"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+      <Button
+        android:id="@+id/item_add_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="@{() -> createItemViewModel.insertOrAddItem(itemDescription.getText().toString(), itemCategory.getSelectedItem().toString(), itemMonth.getSelectedItem().toString(), itemDay.getSelectedItemPosition(), itemCostInput.getText().toString(), itemSplitInput.getText().toString())}"
+        android:text="@string/add_expense"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_split_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </ScrollView>
+</layout>

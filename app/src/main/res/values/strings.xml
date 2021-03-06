@@ -1,0 +1,95 @@
+<resources>
+  <string name="app_name">Budget Tracker</string>
+  <string name="lets_budget">Let\'s Budget</string>
+  <string name="create_budget">Create New Budget</string>
+  <string name="create_item">Add New Expense</string>
+  <string name="edit_item">Edit Expense</string>
+  <string name="create_new_budget">Create New Budget</string>
+  <string name="name">Name</string>
+  <string name="gross_annual_salary">Gross Annual Salary</string>
+  <string name="tax_rate">Average Tax Rate</string>
+  <string name="budget_categories">Budget Allocation Per Month</string>
+  <string name="add_category">Add Category</string>
+  <string name="add_expense">Add Expense</string>
+  <string name="edit_expense">Edit Expense</string>
+  <string name="delete_expense">Delete Expense</string>
+  <string name="done">Done</string>
+  <string name="description">Description</string>
+  <string name="cost">Cost:</string>
+  <string name="split">Split Group Size:</string>
+  <string name="create_new_category">Create New Budget Category</string>
+  <string name="edit_new_category">Edit Budget Category</string>
+  <string name="select_group">Select a Budget Group</string>
+  <string name="budget_allocation">Budget Allocation:</string>
+  <string name="pre_tax">Pre-Tax Deduction:</string>
+  <string name="dollar_size">$</string>
+  <string name="header_text">Total Available</string>
+  <string name="more_options">More</string>
+  <string name="budgets">Budgets</string>
+  <string name="edit_budget">Edit Budget</string>
+  <string name="delete_budget">Delete Budget</string>
+  <string name="about">About</string>
+  <string name="about_content">Content</string>
+  <string name="faq">FAQ</string>
+  <string name="faq_content">Content</string>
+  <string name="edit_category">Edit Category</string>
+  <string name="delete_category">Delete Category</string>
+  <string name="month_year_selector">Month - Year Selector</string>
+  <string name="set">Set</string>
+
+  <string-array name="budget_groups">
+    <item>Select Budget Group</item>
+    <item>Needs</item>
+    <item>Wants</item>
+    <item>Savings</item>
+  </string-array>
+
+  <string-array name="months">
+    <item>January</item>
+    <item>February</item>
+    <item>March</item>
+    <item>April</item>
+    <item>May</item>
+    <item>June</item>
+    <item>July</item>
+    <item>August</item>
+    <item>September</item>
+    <item>October</item>
+    <item>November</item>
+    <item>December</item>
+  </string-array>
+
+  <string-array name="days">
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+    <item>6</item>
+    <item>7</item>
+    <item>8</item>
+    <item>9</item>
+    <item>10</item>
+    <item>11</item>
+    <item>12</item>
+    <item>13</item>
+    <item>14</item>
+    <item>15</item>
+    <item>16</item>
+    <item>17</item>
+    <item>18</item>
+    <item>19</item>
+    <item>20</item>
+    <item>21</item>
+    <item>22</item>
+    <item>23</item>
+    <item>24</item>
+    <item>25</item>
+    <item>26</item>
+    <item>27</item>
+    <item>28</item>
+    <item>29</item>
+    <item>30</item>
+    <item>31</item>
+  </string-array>
+</resources>
