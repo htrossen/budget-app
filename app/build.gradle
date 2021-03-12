@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+
+android {
+  compileSdkVersion 29
+  buildToolsVersion "29.0.2"
+  defaultConfig {
+    applicationId "com.example.android.budgettracker"
+    minSdkVersion 19
+    targetSdkVersion 29
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  dataBinding {
+    enabled = true
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version_kotlin"
+
+  // Support libraries
+  implementation "androidx.appcompat:appcompat:$version_appcompat"
+  implementation "androidx.fragment:fragment:$version_fragment"
+  implementation "androidx.constraintlayout:constraintlayout:$version_constraint_layout"
+
+  // Android KTX
+  implementation "androidx.core:core-ktx:$version_core"
+
+  // Coroutines for getting off the UI thread
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version_coroutine"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version_coroutine"
+
+  // Navigation
+  implementation "android.arch.navigation:navigation-fragment-ktx:$version_navigation"
+  implementation "android.arch.navigation:navigation-ui-ktx:$version_navigation"
+
+  // Room and Lifecycle dependencies
+  implementation "androidx.room:room-runtime:$version_room"
+  implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+  implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+  implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
+  kapt "androidx.room:room-compiler:$version_room"
+  implementation "androidx.lifecycle:lifecycle-extensions:$version_lifecycle_extensions"
+
+  // Testing
+  testImplementation 'junit:junit:4.12'
+  androidTestImplementation 'androidx.test:runner:1.1.1'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+  // Flipper
+  debugImplementation 'com.facebook.flipper:flipper:0.26.0'
+  debugImplementation 'com.facebook.soloader:soloader:0.5.1'
+  releaseImplementation 'com.facebook.flipper:flipper-noop:0.26.0'
+
+  // Time
+  implementation 'com.jakewharton.threetenabp:threetenabp:1.2.1'
+
+  // Lottie
+  implementation "com.airbnb.android:lottie:$version_lottie"
+
+}
